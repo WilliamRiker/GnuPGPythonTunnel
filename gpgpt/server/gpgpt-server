@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import getopt
+import sys
+
+import msgo
+import socketo
+import commands
+
+#+++++++++++++++++++------________________________
+#** D E B U G
+#-------------------------------------------------
+DEBUG_MESSAGE = 0
+DEBUG_NO_CARD = 0
+#*************************************************   
+
+#+++++++++++++++++++------________________________
+#** M A I N
+#************************************************    
+def main():
+    # parse command line options
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "h", ["help"])
+    except getopt.error, msg:
+        print msg
+        print "for help use --help"
+        sys.exit(2)
+    # process options
+    for o, a in opts:
+        if o in ("-h", "--help"):
+            print __doc__
+            sys.exit(0)
+    # process arguments
+    for arg in args:
+        process(arg) # process() is defined elsewhere
+    
+    sec_message = msgo.Gen_Sec_Message(DEBUG_MESSAGE, DEBUG_NO_CARD)
+    enc_sec_message = msgo.Encrypt_Sec_Message(sec_message, DEBUG_MESSAGE, DEBUG_NO_CARD)  
+    received_enc_msg = socketo.Wait_And_Send_And_Receive_Aut_Msg(enc_sec_message, sec_message, DEBUG_MESSAGE, DEBUG_NO_CARD)
+
+if __name__ == "__main__":
+    main()
+
+
+     
+     	
