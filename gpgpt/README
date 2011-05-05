@@ -1,11 +1,1 @@
-RUN INSTRUCTIONS
-======================================
-1. You need 2x OpenPGP smart-card
-2. Generate Secret keys on cards. You need your public keys in your ~/.gnupg
-3. Change the SERVER_PUBLIC constant in client/csocketo.py and CLIENT_PUBLIC
-   constant in server/msgo.py
-4. Change IP address - constant IP_ADDRESS in client/csocketo.py 
-5. Start the server (./gpgpt-server)
-6. Start the client (./gpgpt-client) 
-
-Enjoy the secure encrypted communication...
+../README
