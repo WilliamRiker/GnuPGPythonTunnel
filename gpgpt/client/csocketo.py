@@ -1,9 +1,11 @@
 #+++++++++++++++++++------________________________
 #** C L I E N T  - S E T T I N G S
 #-------------------------------------------------
-PORT = 5009
+PORT = 5003
 SERVER_PUBLIC = '63E685D0'
 IP_ADDRESS = 'localhost'
+
+SENDER_NAME = 'BOB'
 #-------------------------------------------------
 
 import socket
@@ -41,7 +43,7 @@ class App:
       print "I send message to server"
       self.client_socket.send(enc_msg) 
          
-      chat.chat(self.client_socket, dec_message)
+      chat.chat(self.client_socket, dec_message, SENDER_NAME)
       return 0
     
     

@@ -1,8 +1,8 @@
 import sys
 from termcolor import colored, cprint
 
-def display(print_value):
-   cprint(' '+print_value+' ', 'white', 'on_blue')
+def display(print_value, u_name):
+   cprint(u_name+': '+print_value+' ', 'white', 'on_blue')
    return 0
    
 def display_input():

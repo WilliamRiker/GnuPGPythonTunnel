@@ -3,8 +3,8 @@
 #+++++++++++++++++++------________________________
 #** S E R V E R  - S E T T I N G S
 #-------------------------------------------------
-PORT = 5009
-
+PORT = 5003
+SENDER_NAME = 'ALICE'
 #-------------------------------------------------
 
 
@@ -39,7 +39,7 @@ def Wait_And_Send_And_Receive_Aut_Msg(enc_sec_message, sec_message, DEBUG, DEBUG
 	    print "communication error"
 	elif ret_con_msg == 1:
 	    print "ALL right"
-	    chat.chat(client_socket, sec_message);
+	    chat.chat(client_socket, sec_message, SENDER_NAME);
 	else:
 	    print "Intruder"
     else:

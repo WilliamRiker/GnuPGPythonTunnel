@@ -34,6 +34,8 @@ def main():
     for arg in args:
         process(arg) # process() is defined elsewhere
     
+    pn = commands.getoutput('echo $!')
+    print "PN: %s" % pn
     sec_message = msgo.Gen_Sec_Message(DEBUG_MESSAGE, DEBUG_NO_CARD)
     enc_sec_message = msgo.Encrypt_Sec_Message(sec_message, DEBUG_MESSAGE, DEBUG_NO_CARD)  
     received_enc_msg = socketo.Wait_And_Send_And_Receive_Aut_Msg(enc_sec_message, sec_message, DEBUG_MESSAGE, DEBUG_NO_CARD)
